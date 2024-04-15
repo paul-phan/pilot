@@ -80,6 +80,17 @@ export default {
       });
 
       /**
+       * Create a Weaverse client
+       */
+      const weaverse = createWeaverseClient({
+        storefront,
+        request,
+        env,
+        cache,
+        waitUntil,
+      });
+
+      /**
        * Create a Remix request handler and pass
        * Hydrogen's Storefront client to the loader context.
        */
@@ -93,13 +104,7 @@ export default {
           cart,
           env,
           waitUntil,
-          weaverse: createWeaverseClient({
-            storefront,
-            request,
-            env,
-            cache,
-            waitUntil,
-          }),
+          weaverse,
         }),
       });
 

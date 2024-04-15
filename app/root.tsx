@@ -84,8 +84,9 @@ export const useRootLoaderData = () => {
   return root?.data as SerializeFrom<typeof loader>;
 };
 
-export async function loader({request, context}: LoaderFunctionArgs) {
+export async function loader({request, context, ...args}: LoaderFunctionArgs) {
   const {storefront, customerAccount, cart} = context;
+  console.log('context111', {request, context, ...args});
   const layout = await getLayoutData(context);
 
   const isLoggedInPromise = customerAccount.isLoggedIn();

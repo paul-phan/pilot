@@ -4,7 +4,7 @@ import type {
 } from '@weaverse/hydrogen';
 import type {CSSProperties} from 'react';
 import {forwardRef, useState, useCallback, useEffect} from 'react';
-import {useKeenSlider} from 'keen-slider/react.es';
+import {useKeenSlider} from 'keen-slider/react';
 import clsx from 'clsx';
 
 interface SlideShowProps extends HydrogenComponentProps {

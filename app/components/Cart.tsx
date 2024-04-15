@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import {useRef} from 'react';
-import useScroll from 'react-use/esm/useScroll';
+import ru from 'react-use';
 import {
   flattenConnection,
   CartForm,
@@ -26,6 +26,7 @@ import {
   FeaturedProducts,
 } from '~/components';
 import {getInputStyleClasses} from '~/lib/utils';
+let useScroll = ru.useScroll;
 
 type Layouts = 'page' | 'drawer';
 

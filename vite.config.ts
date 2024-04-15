@@ -1,26 +1,15 @@
+import {
+  vitePlugin as remix,
+  cloudflareDevProxyVitePlugin as remixCloudflareDevProxy,
+} from '@remix-run/dev';
 import {defineConfig} from 'vite';
-import {hydrogen} from '@shopify/hydrogen/vite';
-import {oxygen} from '@shopify/mini-oxygen/vite';
-import {vitePlugin as remix} from '@remix-run/dev';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import {getLoadContext} from './load-context';
 
 export default defineConfig({
   plugins: [
-    hydrogen(),
-    oxygen(),
-    remix({
-      presets: [hydrogen.preset()],
-      future: {
-        v3_fetcherPersist: true,
-        v3_relativeSplatPath: false,
-        v3_throwAbortReason: true,
-      },
-    }),
+    remixCloudflareDevProxy({getLoadContext}),
+    remix(),
     tsconfigPaths(),
   ],
-  ssr: {
-    optimizeDeps: {
-      include: ['typographic-base/index', 'textr'],
-    },
-  },
 });
