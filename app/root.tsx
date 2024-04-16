@@ -116,7 +116,7 @@ export async function loader({request, context}: LoaderFunctionArgs) {
 }
 
 export const meta: MetaFunction<typeof loader> = ({data}) => {
-  return getSeoMeta(data!.seo as SeoConfig);
+  return getSeoMeta(data?.seo as SeoConfig);
 };
 
 function App() {
